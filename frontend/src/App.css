@@ -5,12 +5,12 @@ body {
 
 .container{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    max-height: 600px;
+    top: 60%;
+    left: 55%;
+    max-height: 100%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    background: red;
+    
 }
 
 
@@ -120,3 +120,19 @@ body {
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
+
+.grid_books{
+  display: grid;
+  grid-template-columns: repeat(3, 258px);
+  margin: 0 auto;
+}
+
+.img_books{
+  width: 150px;
+  height: 250px;
+  text-align: center;
+}
+
+/* .text_books{
+  text-align: center;
+} */
