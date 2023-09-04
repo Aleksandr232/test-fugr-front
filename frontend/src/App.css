@@ -1,38 +1,122 @@
-.App {
-  text-align: center;
+html,
+body {
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-height: 600px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: red;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.dark-theme body{
+  margin: 0;
+  background: black;
+  font-family: sans-serif;
+  font-weight: 100;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.light body{
+  margin: 0;
+  background: white;
+  font-family: sans-serif;
+  font-weight: 100;
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.theme-btn {
+  z-index: 99999;
+  position: fixed;
+  right: 0;
+  top: 100px;
+  background: #6a59d1;
+  backdrop-filter: blur(20px);
+  width: 50px;
+  height: 50px;
+  font-size: 1.2em;
+  border-radius: 5px 0 0 5px;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.dark-theme .theme-moon{
+  position: absolute;
+  visibility: hidden;
+  left: 20px;
+}
+
+.light .theme-sun{
+  position: absolute;
+  visibility: hidden;
+  left: 20px;
+}
+
+.light .input_search{
+  position: absolute;
+  width: 600px;
+  height: 25px;
+  background: #6a59d1;
+  border-radius: 7px;
+  top: 30px;
+  max-height: 600px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.dark-theme .input_search{
+  position: absolute;
+  width: 600px;
+  height: 25px;
+  background: white;
+  border-radius: 7px;
+  top: 30px;
+  max-height: 600px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #6a59d1;
+}
+
+.dark-theme .btn_search{
+  position: absolute;
+  width: 100px;
+  height: 25px;
+  background: #6a59d1;
+  border-radius: 7px;
+  top: 30px;
+  max-height: 600px;
+  left: 74%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  color: white;
+}
+
+.light .btn_search{
+  position: absolute;
+  width: 100px;
+  height: 25px;
+  background: white;
+  border-radius: 7px;
+  top: 30px;
+  max-height: 600px;
+  left: 74%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
 }
