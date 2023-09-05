@@ -36,6 +36,7 @@ export const searchBooks = () => {
     return (dispatch, getState) => {
       dispatch(fetchBooksRequest());
       const query = getState().searchQuery;
+      setTimeout(()=>{
       axios
         .get(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=AIzaSyBEWsoXj1sARoH3kRk0Na125HlWPuNJB8o`)
         .then((response) => {
@@ -46,5 +47,6 @@ export const searchBooks = () => {
         .catch((error) => {
           dispatch(fetchBooksFailure(error.message));
         });
+      }, 5000)
     };
   };

@@ -10,6 +10,7 @@ const Main = () => {
   const dispatch = useDispatch();
   const [query, setQuery] = useState('');
   const books = useSelector((state) => state.books);
+  const loading = useSelector((state)=> state.loading);
   const [limit, setLimit] = useState(3);
 
   const handleInputChange = (e) => {
@@ -38,6 +39,7 @@ const Main = () => {
       </div>
       <ButtonTheme />
       <div className="container">
+      {loading ? (<div class="loader"></div>): (<div>
         <div className="grid_books">
           {books.length > 0 ? (
             books.slice(0, limit).map((book) => (
@@ -59,6 +61,7 @@ const Main = () => {
             Загрузить еще
           </button>
         )}
+        </div>)}
       </div>
     </>
 
