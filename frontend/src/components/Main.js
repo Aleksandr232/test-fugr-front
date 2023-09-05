@@ -51,13 +51,11 @@ const Main = () => {
                   alt="Книжная обложка"
                 />
               </div>
-            ))
-          ) : (
-            <div>Нет доступных книг</div>
-          )}
+            ))) : ([])}
+        
         </div>
         {books.length > limit && (
-          <button onClick={handleLoadMore} className="btn_load_more">
+          <button  onClick={handleLoadMore} className="btn_load_more">
             Загрузить еще
           </button>
         )}
