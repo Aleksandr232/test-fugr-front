@@ -5,7 +5,7 @@ body {
 
 .container{
     position: absolute;
-    top: 60%;
+    top: 63%;
     left: 55%;
     max-height: 100%;
     -webkit-transform: translate(-50%, -50%);
@@ -75,6 +75,14 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  color: white
+}
+
+ .dark-theme ::-webkit-input-placeholder{
+  color: #6a59d1;
+}
+
+.light ::-webkit-input-placeholder{
   color: white;
 }
 
@@ -265,4 +273,32 @@ body {
   50% {
     transform: scale(1.2, 1);
   }
+}
+
+.dark-theme .select_search{
+  position: absolute;
+  width: 150px;
+  height: 25px;
+  background: #6a59d1;
+  border-radius: 7px;
+  top: 70px;
+  max-height: 600px;
+  left: 35%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.light .select_search{
+  position: absolute;
+  width: 150px;
+  height: 25px;
+  background: white;
+  border-radius: 7px;
+  top: 70px;
+  max-height: 600px;
+  left: 35%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #6a59d1;
 }
