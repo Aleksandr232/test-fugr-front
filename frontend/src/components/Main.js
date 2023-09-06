@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { setSearchQuery, searchBooks, fetchBooksSuccess } from '../redux/actions';
+import { setSearchQuery, searchBooks, fetchBooksSuccess, setFilterCategory } from '../redux/actions';
 
 
 import ButtonTheme from "./ButtonTheme";
@@ -12,8 +12,9 @@ const Main = () => {
   const [query, setQuery] = useState('');
   const books = useSelector((state) => state.books);
   const loading = useSelector((state)=> state.loading);
+  const categories = useSelector((state)=>state.categories);
   const error = useSelector((state)=> state.error);
-  const [limit, setLimit] = useState(3);
+  const [limit, setLimit] = useState(5);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
 
@@ -21,9 +22,11 @@ const Main = () => {
     setQuery(e.target.value);
   };
 
-  const handleSearch = () => {
+  const handleSearch = (event) => {
+    event.preventDefault();
     dispatch(setSearchQuery(query));
     dispatch(searchBooks());
+    dispatch(setFilterCategory(categories));
   };
 
   useEffect(() => {
@@ -32,7 +35,11 @@ const Main = () => {
 
 
   const handleLoadMore = () => {
-    setLimit((prevLimit) => prevLimit + 3);
+    setLimit((prevLimit) => prevLimit + 5);
+  };
+
+  const handleFilterCategoryChange = (event) => {
+    dispatch(setFilterCategory(event.target.value));
   };
 
   const handleBookClick = (book) => {
@@ -42,10 +49,19 @@ const Main = () => {
 
   return (
     <>
-      <div>
+      <form onSubmit={handleSearch}>
         <input value={query} onChange={handleInputChange} className="input_search" type="text" />
-        <button onClick={handleSearch} className="btn_search">Поиск</button>
-      </div>
+        <button type='submit' className="btn_search">Поиск</button>
+        <select onChange={handleFilterCategoryChange}  id="">
+          <option value="all">Все</option>
+          <option value="computers">Компьютеры</option>
+          <option value='history'>История</option>
+          <option value="art">Искусство</option>
+          <option value="biography">Биография</option>
+          <option value="medical">Медицина</option>
+          <option value="poetry">Поэзия</option>
+        </select>
+      </form>
       <ButtonTheme />
       <div className="container">
         {error ? (<div>ошибка на сервере!</div>) :

@@ -31,22 +31,30 @@ export const fetchBooksFailure = (error) => {
   };
 };
 
+export const setFilterCategory = (categories) => {
+  return {
+    type: 'SET_FILTER_CATEGORY',
+    payload: categories
+  };
+};
+
 // Асинхронный экшен для выполнения поискового запроса
 export const searchBooks = () => {
-    return (dispatch, getState) => {
-      dispatch(fetchBooksRequest());
-      const query = getState().searchQuery;
-      setTimeout(()=>{
-      axios
-        .get(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=AIzaSyBEWsoXj1sARoH3kRk0Na125HlWPuNJB8o`)
-        .then((response) => {
-          const books = response.data.items;
-          console.log(books);
-          dispatch(fetchBooksSuccess(books));
-        })
-        .catch((error) => {
-          dispatch(fetchBooksFailure(error.message));
-        });
-      }, 5000)
-    };
+  return (dispatch, getState) => {
+    dispatch(fetchBooksRequest());
+    const query = getState().searchQuery;
+    const categories = getState().filterCategory;
+    setTimeout(()=>{
+    axios
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${query}=${categories}&maxResults=30&key=AIzaSyBEWsoXj1sARoH3kRk0Na125HlWPuNJB8o`)
+      .then((response) => {
+        const books = response.data.items;
+        console.log(books);
+        dispatch(fetchBooksSuccess(books));
+      })
+      .catch((error) => {
+        dispatch(fetchBooksFailure(error.message));
+      });
+    }, 5000)
   };
+};

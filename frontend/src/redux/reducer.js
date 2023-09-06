@@ -2,7 +2,8 @@ const initialState = {
     books: [],
     loading: false,
     error: null,
-    searchQuery: ''
+    searchQuery: '',
+    filterCategory: ''
   };
   
   const bookReducer = (state = initialState, action) => {
@@ -30,6 +31,11 @@ const initialState = {
           ...state,
           searchQuery: action.payload
         };
+      case 'SET_FILTER_CATEGORY':
+          return {
+            ...state,
+            filterCategory: action.payload
+          };  
       default:
         return state;
     }
