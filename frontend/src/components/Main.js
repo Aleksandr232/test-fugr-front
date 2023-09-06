@@ -52,7 +52,7 @@ const Main = () => {
       <form onSubmit={handleSearch}>
         <input value={query} onChange={handleInputChange} className="input_search" type="text" />
         <button type='submit' className="btn_search">Поиск</button>
-        <select onChange={handleFilterCategoryChange}  id="">
+        <select className='select_search' onChange={handleFilterCategoryChange}  id="">
           <option value="all">Все</option>
           <option value="computers">Компьютеры</option>
           <option value='history'>История</option>
