@@ -364,6 +364,7 @@ body {
 
 .block_book{
   cursor: pointer;
+  
 }
 
 .dark-theme .close-button{
@@ -393,4 +394,13 @@ body {
   transform: translate(-50%, -50%);
   cursor: pointer;
   color: white;
+}
+
+.book-info{
+  width: 100%;
+}
+
+.img_info{
+  position: relative;
+  left: 10px;
 }

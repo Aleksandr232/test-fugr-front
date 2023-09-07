@@ -8,7 +8,7 @@ const Modal = ({ book, onClose }) => {
             Закрыть
           </button>
           <div className="book-info">
-            <img src={book.volumeInfo.imageLinks.thumbnail} alt="Книжная обложка" />
+            <img className="img_info" src={book.volumeInfo.imageLinks.thumbnail} alt="Книжная обложка" />
             <div className="book-description">
               <h1>{book.volumeInfo.title}</h1>
               <p>{book.volumeInfo.description}</p>
