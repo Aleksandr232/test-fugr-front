@@ -7,7 +7,7 @@ import ButtonTheme from "./ButtonTheme";
 import Modal from './Modal';
 
 
-const Main = () => {
+const Main = ({isModalOpen}) => {
   const dispatch = useDispatch();
   const [query, setQuery] = useState('');
   const books = useSelector((state) => state.books);
@@ -82,6 +82,12 @@ const Main = () => {
                 <div className='block_book' key={book.id} onClick={() => handleBookClick(book)}>
                   <div className="text_books">
                     {book.volumeInfo.title.substring(0, 10) + '...'}
+                  </div>
+                  <div className='book_author'>
+                    {book.volumeInfo.authors[0].substring(0, 10) + '...'}
+                  </div>
+                  <div className='book_categories'>
+                    {book.volumeInfo.categories}
                   </div>
                   <img
                     className="img_books"

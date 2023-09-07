@@ -1,8 +1,9 @@
 
 
 const Modal = ({ book, onClose }) => {
+  
     return (
-      <div className="modal">
+      <div className="modal" >
         <div className="modal-content">
           <button className="close-button" onClick={onClose}>
             Закрыть
@@ -12,6 +13,10 @@ const Modal = ({ book, onClose }) => {
             <div className="book-description">
               <h1>{book.volumeInfo.title}</h1>
               <p>{book.volumeInfo.description}</p>
+              <div className="book_des" >
+                <p>Автор: {book.volumeInfo.authors[0]}</p>
+                <p>Категория:{book.volumeInfo.categories}</p>
+              </div>
             </div>
           </div>
         </div>

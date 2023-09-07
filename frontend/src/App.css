@@ -6,7 +6,7 @@ body {
 .container{
     position: absolute;
     top: 63%;
-    left: 55%;
+    left: 53%;
     max-height: 100%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -169,7 +169,7 @@ body {
 
 .light .btn_load_more{
   position: relative;
-  left: 43%;
+  left: 49%;
   top: 25px;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -183,7 +183,7 @@ body {
 
 .dark-theme .btn_load_more{
   position: relative;
-  left: 43%;
+  left: 49%;
   top: 25px;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -339,7 +339,7 @@ body {
 .dark-theme .modal{
   background-color: #6a59d1;
   position: fixed;
-  left: 50%;
+  left: 53%;
   width: 50%;
   top: 50%;
   z-index: 1;
@@ -352,7 +352,7 @@ body {
 .light .modal{
   background-color: white;
   position: fixed;
-  left: 50%;
+  left: 53%;
   width: 50%;
   top: 50%;
   z-index: 1;
@@ -362,9 +362,20 @@ body {
   border: 1px solid black;
 }
 
-.block_book{
+.dark-theme .block_book{
   cursor: pointer;
-  
+  background: #6a59d1;
+  padding: 32px 50px;
+  border: 1px solid white;
+  border-radius: 7px;
+}
+
+.light .block_book{
+  cursor: pointer;
+  background: white;
+  padding: 32px 50px;
+  border: 1px solid black;
+  border-radius: 7px;
 }
 
 .dark-theme .close-button{
@@ -403,4 +414,31 @@ body {
 .img_info{
   position: relative;
   left: 10px;
+}
+
+.text_books{
+  position: relative;
+  left: -40px;
+  bottom: 20px;
+  
+}
+
+.book_author{
+  position: relative;
+  width: 250px;
+  left: 96px;
+  bottom: 40px
+}
+
+.book_categories{
+  position: relative;
+  left: -15px;
+  bottom: 10px;
+  width: 300px;
+}
+
+.book_des{
+  position: absolute;
+  left: 23%;
+  bottom: 75%;
 }
