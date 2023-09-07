@@ -3,7 +3,8 @@ const initialState = {
     loading: false,
     error: null,
     searchQuery: '',
-    filterCategory: ''
+    filterCategory: '',
+    filterNews:''
   };
   
   const bookReducer = (state = initialState, action) => {
@@ -36,6 +37,11 @@ const initialState = {
             ...state,
             filterCategory: action.payload
           };  
+      case 'SET_FILTER_NEWS':
+          return{
+            ...state,
+            filterNews: action.payload
+          }
       default:
         return state;
     }

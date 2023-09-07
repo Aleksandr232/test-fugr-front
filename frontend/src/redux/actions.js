@@ -38,15 +38,23 @@ export const setFilterCategory = (categories) => {
   };
 };
 
+export const setFilterNews = (orderBy) => {
+  return{
+    type: 'SET_FILTER_NEWS',
+    payload: orderBy
+  }
+}
+
 // Асинхронный экшен для выполнения поискового запроса
 export const searchBooks = () => {
   return (dispatch, getState) => {
     dispatch(fetchBooksRequest());
     const query = getState().searchQuery;
     const categories = getState().filterCategory;
+    const orderBy = getState().filterNews;
     setTimeout(()=>{
     axios
-      .get(`https://www.googleapis.com/books/v1/volumes?q=${query}=${categories}&maxResults=30&key=AIzaSyBEWsoXj1sARoH3kRk0Na125HlWPuNJB8o`)
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${query}=${categories}&orderBy=${orderBy}&maxResults=30&key=AIzaSyBEWsoXj1sARoH3kRk0Na125HlWPuNJB8o`)
       .then((response) => {
         const books = response.data.items;
         console.log(books);
